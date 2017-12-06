@@ -12,13 +12,12 @@ namespace EZ
 template <class T>
 inline T* _allocate(ptrdiff_t size,T*){
     std::set_new_handler(0);
-    /*T* tmp = (T*)(::operator new((size_t)(size * sizeof(T))));
+    T* tmp = (T*)(::operator new((size_t)(size * sizeof(T))));
     if(tmp==0){
         std::cerr << "out of memory" << std::endl;
         exit(1);
     }
-    return tmp;*/
-    return NULL;
+    return tmp;
 }
 
 template <class T>
@@ -71,7 +70,7 @@ class allocator{
     }
 
     size_type max_size() const{
-        return size_type(UNIT_MAX/sizeof(T));
+        return size_type(UINT_MAX/sizeof(T));
     }
 };
 }
